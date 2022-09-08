@@ -1,4 +1,4 @@
-import { getApp, getApps, initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
@@ -11,7 +11,7 @@ const firebaseConfig = {
   messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_ID,
   appId: process.env.NEXT_PUBLIC_APP_ID,
 };
-const app = getApps.length > 0 ? getApp() : initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const fireStore = getFirestore(app);
 const storage = getStorage(app);
 
