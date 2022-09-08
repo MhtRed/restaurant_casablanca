@@ -6,11 +6,17 @@ import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 import EmptyCart from "/public/imgs/emptyCart.svg";
 import Image from "next/image";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { app } from "../firebase.config";
+import Link from "next/link";
 
 function CartContainer() {
+  const firebaseAuth = getAuth(app);
+  const provider = new GoogleAuthProvider();
   const [{ user, cartItems }, dispatch] = useStateValue();
   const [tot, setTot] = useState(0);
   const [flag, setFlag] = useState(1);
+  const deliveryCharge = 35;
   useEffect(() => {
     let totalPrice = cartItems.reduce(
       (accumulator, item) => accumulator + item.qty * item.price,
@@ -25,6 +31,16 @@ function CartContainer() {
       cartItems: [],
     });
     localStorage.setItem("cartItems", JSON.stringify([]));
+  };
+  //Login
+  const login = async () => {
+    const { user } = await signInWithPopup(firebaseAuth, provider);
+    const { refreshToken, providerData } = user;
+    dispatch({
+      type: actionType.SET_USER,
+      user: providerData[0],
+    });
+    localStorage.setItem("user", JSON.stringify(providerData[0]));
   };
 
   // Returning the JSX
@@ -76,30 +92,33 @@ function CartContainer() {
           <div className="w-full flex-1  bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2 ">
             <div className="w-full flex items-center justify-between ">
               <p className="text-gray-400 text-lg">Sub total</p>
-              <p className="text-gray-400 text-lg"> {tot} Dhs</p>
+              <p className="text-gray-400 text-lg"> {tot.toFixed(2)} Dhs</p>
             </div>
             <div className="w-full flex items-center justify-between ">
               <p className="text-gray-400 text-lg">Delivery</p>
-              <p className="text-gray-400 text-lg"> 15 Dhs</p>
+              <p className="text-gray-400 text-lg"> {deliveryCharge} Dhs</p>
             </div>
             <div className="w-full border-b border-gray-600 my-2"></div>
             <div className="w-full flex items-center justify-between ">
               <p className="text-gray-200 text-xl font-semibold">Total</p>
               <p className="text-gray-200 text-xl font-semibold">
-                 {tot + 15} Dhs
+                {(tot + deliveryCharge).toFixed(2)} Dhs
               </p>
             </div>
             {user ? (
-              <motion.button
-                whileTap={{ scale: 0.75 }}
-                className=" w-full p-2 rounded-full bg-gradient-to-tl from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg font-semibold tracking-wide "
-              >
-                Check-out
-              </motion.button>
+              <Link href="/checkout">
+                <motion.button
+                  whileTap={{ scale: 0.75 }}
+                  className=" w-full p-2 rounded-full bg-gradient-to-tl from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg font-semibold tracking-wide "
+                >
+                  Check-out
+                </motion.button>
+              </Link>
             ) : (
               <motion.button
                 whileTap={{ scale: 0.75 }}
                 className=" w-full p-2 rounded-full bg-gradient-to-tl from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg font-semibold tracking-wide "
+                onClick={login}
               >
                 Login to checkout
               </motion.button>

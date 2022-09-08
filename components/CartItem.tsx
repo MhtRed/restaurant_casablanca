@@ -4,10 +4,10 @@ import { BiMinus, BiPlus } from "react-icons/bi";
 import { actionType } from "../context/reducer";
 import { useStateValue } from "../context/StateProvider";
 import Image from "next/image";
+let items = [];
 
 function CartItem({ item, setFlag, flag }) {
   const [{ cartItems }, dispatch] = useStateValue();
-  const [items, setItems] = useState([]);
   const [qty, setQty] = useState(item.qty);
 
   const cartDispatch = () => {
@@ -17,6 +17,7 @@ function CartItem({ item, setFlag, flag }) {
       cartItems: items,
     });
   };
+  // Update Quantity function
   const updateQty = (action, id) => {
     if (action === "add") {
       setQty(qty + 1);
@@ -30,7 +31,7 @@ function CartItem({ item, setFlag, flag }) {
     }
     if (action === "remove") {
       if (qty === 1) {
-        setItems(items.filter((item) => item.id !== id));
+        items = items.filter((item) => item.id !== id);
         setFlag(flag + 1);
         cartDispatch();
       } else {
@@ -47,8 +48,8 @@ function CartItem({ item, setFlag, flag }) {
   };
 
   useEffect(() => {
-    setItems(cartItems);
-  }, [qty, items]);
+    items = cartItems;
+  }, []);
 
   // Returning the JSX
   return (
@@ -65,7 +66,7 @@ function CartItem({ item, setFlag, flag }) {
         <p className=" text-base text-gray-50">{item.title}</p>
         <p className=" text-xs block text-gray-300 font-semibold">
           {qty} x {item.price} Dhs ={" "}
-          <span className="text-sm">{qty * item.price} Dhs</span>
+          <span className="text-sm">{(qty * item.price).toFixed(2)} Dhs</span>
         </p>
       </div>
       <div className="group flex items-center gap-2 ml-auto  ">

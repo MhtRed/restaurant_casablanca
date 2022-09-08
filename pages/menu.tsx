@@ -1,5 +1,12 @@
-import { MenuContainer } from "../components";
+import { CartContainer, MenuContainer } from "../components";
+import { useStateValue } from "../context/StateProvider";
 
 export default function Menu() {
-  return <MenuContainer text="Menu" />;
+  const [{ cartShow }, dispatch] = useStateValue();
+  return (
+    <>
+      <MenuContainer text="Menu" />
+      {cartShow && <CartContainer />}
+    </>
+  );
 }

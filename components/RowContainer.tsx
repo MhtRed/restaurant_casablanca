@@ -20,7 +20,7 @@ function RowContainer({ flag, data, scrollValue }) {
     });
     localStorage.setItem("cartItems", JSON.stringify(cart));
   };
-  const rowContainerRef = useRef();
+  const rowContainerRef = useRef(null);
   useEffect(() => {
     rowContainerRef.current.scrollLeft = scrollValue;
   }, [scrollValue]);

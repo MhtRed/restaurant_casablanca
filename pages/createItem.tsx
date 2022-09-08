@@ -19,8 +19,9 @@ import { storage } from "../firebase.config";
 import { getAllMeals, saveMeal } from "../utils/firebaseFunctions";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
+
 function CreateContainer() {
-  // use State Provider
+  // useStateValue Provider
   const [, dispatch] = useStateValue();
   // The different states
   const [title, setTitle] = useState("");
