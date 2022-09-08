@@ -56,7 +56,7 @@ export default function Checkout() {
         setAlertStatus("success");
         clearData();
         // fetchData();
-        setMsg("Order submitted successfully!");
+        setMsg("Thank you for your order! It will be fullfilled in the next hour.");
         setTimeout(() => {
           setFields(false);
         }, 4000);
