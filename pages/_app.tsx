@@ -11,7 +11,7 @@ const Footer = dynamic(() => import("../components/Footer"), { ssr: false });
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode="wait">
       <StateProvider initialeState={initialeState} reducer={reducer}>
         <div className=" min-h-screen flex flex-col bg-primary over ">
           <Header />

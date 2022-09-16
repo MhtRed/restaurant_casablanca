@@ -5,13 +5,13 @@ import {
   collection,
   query,
   orderBy,
-} from "firebase/firestore";
-import { fireStore } from "../firebase.config";
+} from "firebase/firestore/lite";
+import { db } from "../firebase.config";
 
 /*################## Meal #####################*/
 // Set New Meal
 export const saveMeal = async (meal) => {
-  await setDoc(doc(fireStore, "foodItems", `${Date.now()}`), meal, {
+  await setDoc(doc(db, "foodItems", `${Date.now()}`), meal, {
     merge: true,
   });
 };
@@ -19,7 +19,7 @@ export const saveMeal = async (meal) => {
 // Get All Meals
 export const getAllMeals = async () => {
   const meals = await getDocs(
-    query(collection(fireStore, "foodItems"), orderBy("id", "desc"))
+    query(collection(db, "foodItems"), orderBy("id", "desc"))
   );
   return meals.docs.map((doc) => doc.data());
 };
@@ -27,7 +27,7 @@ export const getAllMeals = async () => {
 /*################## Orders #####################*/
 // Set New Order
 export const saveOrder = async (order) => {
-  await setDoc(doc(fireStore, "orders", `${Date.now()}`), order, {
+  await setDoc(doc(db, "orders", `${Date.now()}`), order, {
     merge: true,
   });
 };
@@ -35,7 +35,7 @@ export const saveOrder = async (order) => {
 // Get All Orders
 export const getAllOrders = async () => {
   const orders = await getDocs(
-    query(collection(fireStore, "orders"), orderBy("id", "desc"))
+    query(collection(db, "orders"), orderBy("id", "desc"))
   );
   return orders.docs.map((doc) => doc.data());
 };

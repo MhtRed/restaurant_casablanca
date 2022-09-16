@@ -48,8 +48,8 @@ export default function HomeContainer({ title, content }) {
       </div>
       {/*The right side */}
       <div className=" py-2 flex-1 flex items-center relative">
-        <div className="ml-auto h-420 w-full lg:w-auto lg:h-510">
-          <Image src={HeroBg} alt="hero-bg" layout="fill" />
+        <div className="ml-auto h-420 w-full lg:h-510 relative" >
+          <Image src={HeroBg} alt="hero-bg" layout="fill" priority />
         </div>
         <div className="w-full h-full absolute top-5 left-0 flex items-center justify-center lg:px-16 py-4 gap-4 flex-wrap">
           {bestData.map((item) => (

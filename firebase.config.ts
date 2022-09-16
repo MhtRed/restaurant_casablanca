@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore/lite";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
@@ -12,7 +12,7 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_APP_ID,
 };
 const app = initializeApp(firebaseConfig);
-const fireStore = getFirestore(app);
+const db = getFirestore(app);
 const storage = getStorage(app);
 
-export { app, fireStore, storage };
+export { app, db, storage };
