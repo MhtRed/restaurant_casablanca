@@ -12,4 +12,4 @@ This is a Local Restaurant-app developped using Next.js and Typescript
 - Firebase for handling database and authentication
 - Leaflet & react-leaflet for integrating interactive map
 ## Demo
-Check it out: https://restaurant-app-mhtred.vercel.app/
+Check it out: https://restaurant-casablanca.vercel.app/

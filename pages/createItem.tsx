@@ -20,7 +20,7 @@ import { getAllMeals, saveMeal } from "../utils/firebaseFunctions";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 
-function CreateContainer() {
+function Createitem() {
   // useStateValue Provider
   const [, dispatch] = useStateValue();
   // The different states
@@ -284,4 +284,4 @@ function CreateContainer() {
   );
 }
 
-export default CreateContainer;
+export default Createitem;
