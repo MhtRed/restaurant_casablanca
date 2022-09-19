@@ -17,8 +17,8 @@ function CheckoutItem({ item }) {
         <p className=" text-base text-headingColor">{item.title}</p>
       </div>
       <p className=" text-xs block text-gray-500 font-semibold">
-        {qty} x {item.price} Dhs ={" "}
-        <span className="text-sm">{(qty * item.price).toFixed(2)} Dhs</span>
+        {qty} x {item.price} £ ={" "}
+        <span className="text-sm">{(qty * item.price).toFixed(2)} £</span>
       </p>
     </div>
   );

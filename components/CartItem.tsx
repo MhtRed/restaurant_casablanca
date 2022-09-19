@@ -65,8 +65,8 @@ function CartItem({ item, setFlag, flag }) {
       <div className="flex flex-col gap-2 ml-4">
         <p className=" text-base text-gray-50">{item.title}</p>
         <p className=" text-xs block text-gray-300 font-semibold">
-          {qty} x {item.price} Dhs ={" "}
-          <span className="text-sm">{(qty * item.price).toFixed(2)} Dhs</span>
+          {qty} x {item.price} £ ={" "}
+          <span className="text-sm">{(qty * item.price).toFixed(2)} £</span>
         </p>
       </div>
       <div className="group flex items-center gap-2 ml-auto  ">

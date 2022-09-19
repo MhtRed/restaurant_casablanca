@@ -92,17 +92,17 @@ function CartContainer() {
           <div className="w-full flex-1  bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2 ">
             <div className="w-full flex items-center justify-between ">
               <p className="text-gray-400 text-lg">Sub total</p>
-              <p className="text-gray-400 text-lg"> {tot.toFixed(2)} Dhs</p>
+              <p className="text-gray-400 text-lg"> {tot.toFixed(2)} £</p>
             </div>
             <div className="w-full flex items-center justify-between ">
               <p className="text-gray-400 text-lg">Delivery</p>
-              <p className="text-gray-400 text-lg"> {deliveryCharge} Dhs</p>
+              <p className="text-gray-400 text-lg"> {deliveryCharge} £</p>
             </div>
             <div className="w-full border-b border-gray-600 my-2"></div>
             <div className="w-full flex items-center justify-between ">
               <p className="text-gray-200 text-xl font-semibold">Total</p>
               <p className="text-gray-200 text-xl font-semibold">
-                {(tot + deliveryCharge).toFixed(2)} Dhs
+                {(tot + deliveryCharge).toFixed(2)} £
               </p>
             </div>
             {user ? (

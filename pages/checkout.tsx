@@ -111,17 +111,17 @@ export default function Checkout() {
           <div className="w-full h-340 flex-1  bg-gray-300 rounded-b-3xl flex flex-col items-center justify-evenly px-8 py-2 ">
             <div className="w-full flex items-center justify-between ">
               <p className="text-orange-500 text-lg">Sub total</p>
-              <p className="text-orange-600 text-lg"> {tot.toFixed(2)} Dhs</p>
+              <p className="text-orange-600 text-lg"> {tot.toFixed(2)} £</p>
             </div>
             <div className="w-full flex items-center justify-between ">
               <p className="text-orange-500 text-lg">Delivery</p>
-              <p className="text-orange-600 text-lg"> {deliveryCharge} Dhs</p>
+              <p className="text-orange-600 text-lg"> {deliveryCharge} £</p>
             </div>
             <div className="w-full border-b border-gray-600 my-2"></div>
             <div className="w-full flex items-center justify-between ">
               <p className="text-orange-500 text-xl font-semibold">Total</p>
               <p className="text-orange-600 text-lg font-semibold">
-                {(tot + deliveryCharge).toFixed(2)} Dhs
+                {(tot + deliveryCharge).toFixed(2)} £
               </p>
             </div>
           </div>

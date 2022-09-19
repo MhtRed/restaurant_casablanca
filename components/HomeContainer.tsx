@@ -67,7 +67,7 @@ export default function HomeContainer({ title, content }) {
                 {item.description}
               </p>
               <p className="text-sm  font-semibold text-headingColor">
-                {item.price} <span className="text-xs text-red-600">Dhs</span>
+                {item.price} <span className="text-xs text-red-600">£</span>
               </p>
             </div>
           ))}

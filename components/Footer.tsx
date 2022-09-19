@@ -55,21 +55,21 @@ export default function Footer() {
           Address
         </h5>
         <p className="text-textColor text-base md:text-lg text font-semibold text-center">
-          56, Rue Ahmed Kadmiri <br />
+          5 Av. Marie-Thérèse <br />
           Ex Albert Samain Ang <br />
-          Rue Bachir Laalaj <br />
-          Casablanca 20100
+          Rue de la Semois <br />
+          2132 Luxembourg
         </p>
       </div>
       <div className="  min-h-[200px] ">
         <MapContainer
           className={styles.leaflet}
-          center={[33.574015839544806, -7.639169533343142]}
+          center={[49.607472145417375, 6.122540350772001]}
           zoom={10}
           scrollWheelZoom={true}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <Marker position={[33.574015839544806, -7.639169533343142]}>
+          <Marker position={[49.607472145417375, 6.122540350772001]}>
             <Popup>
               This is our location
               <br /> City Restaurant
