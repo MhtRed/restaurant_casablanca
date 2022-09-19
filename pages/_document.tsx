@@ -6,7 +6,8 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="description" content="City food reastaurant" />
-          <meta name="keywords" content="Food Restaurant, Casablanca, City " />
+          <meta name="keywords" content="Food Restaurant, Luxembourg, City " />
+          <link rel="icon" href="favicon.ico" />
           <link
             rel="stylesheet"
             href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"

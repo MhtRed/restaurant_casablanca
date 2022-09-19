@@ -1,6 +1,6 @@
 {
-  "name": "restaurant_casablanca",
-  "version": "0.1.0",
+  "name": "restaurant_luxembourg",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

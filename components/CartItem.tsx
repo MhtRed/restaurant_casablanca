@@ -49,7 +49,7 @@ function CartItem({ item, setFlag, flag }) {
 
   useEffect(() => {
     items = cartItems;
-  }, []);
+  }, [cartItems]);
 
   // Returning the JSX
   return (

@@ -16,7 +16,7 @@ function CartContainer() {
   const [{ user, cartItems }, dispatch] = useStateValue();
   const [tot, setTot] = useState(0);
   const [flag, setFlag] = useState(1);
-  const deliveryCharge = 35;
+  const deliveryCharge = 4;
   useEffect(() => {
     let totalPrice = cartItems.reduce(
       (accumulator, item) => accumulator + item.qty * item.price,
