@@ -37,4 +37,4 @@ Everything should work fine!
 
 ## Demo
 
-Check it out: https://restaurant-luxembourg.vercel.app/
+Check it out 🚀: https://restaurant-luxembourg.vercel.app/
